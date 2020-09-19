@@ -8,13 +8,13 @@ var tbody = d3.select('tbody');
 
 // Populate table using Arrow
 
-// tableData.forEach((ufo) => {
-//     var row = tbody.append('tr');
-//     Object.entries(ufo).forEach(([key,value]) => {
-//         var cell = row.append('td');
-//         cell.text(value);
-//     });
-// });
+tableData.forEach((ufo) => {
+    var row = tbody.append('tr');
+    Object.entries(ufo).forEach(([key,value]) => {
+        var cell = row.append('td');
+        cell.text(value);
+    });
+});
 
 // Par Form Filter activity example
 
@@ -31,6 +31,8 @@ form.on("submit",runEnter);
 // Complete the event handler function for the form
 function runEnter() {
     
+    d3.select('tbody').html('');
+
     // Prevent the page from refreshing 
     
     d3.event.preventDefault();
@@ -45,7 +47,7 @@ function runEnter() {
     console.log(tableData);
 
     var filteredData = tableData.filter(time => time.datetime === inputValue);
-
+    
     console.log(filteredData);
   
     filteredData.forEach((selections) => {
