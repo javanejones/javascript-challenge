@@ -31,6 +31,8 @@ form.on("submit",runEnter);
 // Complete the event handler function for the form
 function runEnter() {
     
+    d3.select('tbody').html('');
+
     // Prevent the page from refreshing 
     
     d3.event.preventDefault();
@@ -44,9 +46,9 @@ function runEnter() {
     console.log(inputValue);
     console.log(tableData);
 
-    var filteredDate = tableData.filter(time => time.datetime === inputValue);
-
-    console.log(filteredDate);
+    var filteredData = tableData.filter(time => time.datetime === inputValue);
+    
+    console.log(filteredData);
   
     filteredData.forEach((selections) => {
 
@@ -60,4 +62,3 @@ function runEnter() {
     });
 });
 };
-
